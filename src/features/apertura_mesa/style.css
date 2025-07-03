@@ -1,0 +1,130 @@
+:root {
+  --color-base: #141414;
+  --color-mesa-bg: #0f0e0e;
+  --color-border: #f39c12;
+  --color-libre: #2ecc71;
+  --color-ocupada: #e74c3c;
+  --color-texto: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 100px;
+}
+
+.contenedor {
+  background-color: var(--color-base);
+  width: 1300px;
+  height: 650px;
+  border-radius: 10px;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Cada mesa */
+.mesa {
+  background-color: var(--color-mesa-bg);
+  border: 3px solid var(--color-border);
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  position: relative;
+  color: var(--color-texto);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-decoration: none; 
+  color: inherit; 
+}
+
+/* Efecto hover */
+.mesa:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+  text-decoration: none; /* Good practice to ensure no underline on hover either */
+}
+
+/* Efecto al hacer clic */
+.mesa:active {
+  transform: scale(0.98);
+  text-decoration: none; /* Good practice for active state too */
+}
+
+/* Número de mesa (arriba izquierda) */
+.numero {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Ícono de la mesa (imagen) */
+.icono {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Texto de estado (abajo derecha) */
+.estado {
+  background-color: var(--color-border);
+  color: var(--color-texto); /* This is good, ensures the text is white */
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 3px 10px;
+  align-self: flex-end;
+}
+
+
+
+.barra-superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.icono-barra {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    left: 80px;
+    top: 12px;
+}
+
+.boton-notificacion {
+    background-color: #FFA500; /* Naranja */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+    left: 100px;
+}
+
+.boton-notificacion:hover {
+    background-color: #e69500;
+}
+
+.salir {
+    margin-left: auto;
+    margin-right: 0;
+    width: 45px;
+    position: relative;
+    left: -95px;
+    top: 5px;
+}
