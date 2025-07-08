@@ -4,8 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/src/features/panel_mesa/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="barra-superior">
+        <div class="lado-izquierdo">
+            <a href=""><img src="/src/assets/Notificacion.png" alt="Notificación" class="icono-barra"></a>
+            <button id="boton-agregar-aviso" class="boton-notificacion">Agregar avisos</button>
+        </div>
+        <a href="/src/features/login/login.html"><img src="/src/assets/exit.png" alt="Salir" class="salir"></a>
+    </div>
+
+    <div id="modal-aviso" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2>Agregar Aviso</h2>
+            <form id="formulario-aviso" class="formulario-aviso">
+                <input type="text" id="titulo-aviso" placeholder="Título del aviso" required>
+                <textarea id="texto-aviso" placeholder="Ingrese el aviso aquí..." required></textarea>
+                <input type="date" id="fecha-aviso" required>
+                <button type="submit" class="boton-submit">Subir aviso</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <a href="your-link-for-table-01.html" class="mesa libre"><span class="numero">01</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-02.html" class="mesa libre"><span class="numero">02</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-03.html" class="mesa libre"><span class="numero">03</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-04.html" class="mesa libre"><span class="numero">04</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-05.html" class="mesa libre"><span class="numero">05</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-06.html" class="mesa libre"><span class="numero">06</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-07.html" class="mesa libre"><span class="numero">07</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-08.html" class="mesa libre"><span class="numero">08</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-09.html" class="mesa libre"><span class="numero">09</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-10.html" class="mesa libre"><span class="numero">10</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-11.html" class="mesa libre"><span class="numero">11</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-12.html" class="mesa libre"><span class="numero">12</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-13.html" class="mesa libre"><span class="numero">13</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-14.html" class="mesa libre"><span class="numero">14</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+        <a href="your-link-for-table-15.html" class="mesa libre"><span class="numero">15</span><img src="/src/assets/icono.png" class="icono" alt="Mesa" /><span class="estado">Libre</span></a>
+    </div>
+</div>
+<script>
+        // Obtener elementos del DOM
+        const botonAgregarAviso = document.getElementById('boton-agregar-aviso');
+        const modalAviso = document.getElementById('modal-aviso');
+        const cerrarModal = document.querySelector('.cerrar-modal');
+        const formularioAviso = document.getElementById('formulario-aviso');
+        
+        // Mostrar modal al hacer clic en "Agregar avisos"
+        botonAgregarAviso.addEventListener('click', function() {
+            modalAviso.style.display = 'block';
+        });
+        
+        // Cerrar modal al hacer clic en la X
+        cerrarModal.addEventListener('click', function() {
+            modalAviso.style.display = 'none';
+        });
+        
+        // Cerrar modal al hacer clic fuera del contenido
+        window.addEventListener('click', function(event) {
+            if (event.target === modalAviso) {
+                modalAviso.style.display = 'none';
+            }
+        });
+        
+        // Manejar el envío del formulario
+        formularioAviso.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Obtener valores del formulario
+            const titulo = document.getElementById('titulo-aviso').value;
+            const texto = document.getElementById('texto-aviso').value;
+            const fecha = document.getElementById('fecha-aviso').value;
+            
+            // Aquí puedes enviar los datos a tu backend o procesarlos como necesites
+            console.log('Aviso enviado:', { titulo, texto, fecha });
+            
+            // Mostrar mensaje de éxito (puedes personalizar esto)
+            alert('Aviso agregado correctamente');
+            
+            // Limpiar formulario y cerrar modal
+            formularioAviso.reset();
+            modalAviso.style.display = 'none';
+            
+            // Aquí podrías actualizar la lista de avisos si es necesario
+        });
+    </script>
 </body>
 </html>
