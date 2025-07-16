@@ -9,15 +9,12 @@ body {
   background-color: #000;
   color: #fff;
   padding: 20px;
-  overflow: hidden;
-  height: 100%;
 }
 
 .Contenedor {
-  max-width: 1200px;
-  margin: none;
-  max-height: 5px;
-  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  max-height: 1000px;
 }
 
 .header {
@@ -37,7 +34,25 @@ body {
   font-weight: 700;
 }
 
-.btn-cancelar {
+.btn-agregar {
+  font-size: 20px;
+}
+
+.btn-agregar {
+  background: transparent;
+  border: 2px solid #f59e0b;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.btn {
   background: transparent;
   border: 2px solid #f59e0b;
   color: white;
@@ -62,34 +77,34 @@ body {
 }
 
 
-.ntn-cancelar span {
+.btn {
   font-size: 20px;
 }
 
-.comandas-tabla {
+.tabla_usuarios {
   width: 100%;
   border-collapse: collapse;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.comandas-tabla thead {
+.tabla_usuarios thead {
   background-color: #f59e0b;
   color: white;
 }
 
-.comandas-tabla th,
-.comandas-tabla td {
+.tabla_usuarios th,
+.tabla_usuarios td {
   padding: 35px;
   text-align: left;
   font-size: 20px;
 }
 
-.comandas-tabla tbody tr {
+.tabla_usuarios tbody tr {
   border-top: 1px solid #333;
   background-color: #111;
 }
 
-.comandas-tabla tbody tr:hover {
+.tabla_usuarios tbody tr:hover {
   background-color: #1a1a1a;
 }
