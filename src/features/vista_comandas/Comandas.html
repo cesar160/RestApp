@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comandar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="StylesC.css" />
+</head>
+<body>
+  
+  <div class="barra-de-tareas">
+    <button class="BotonA">Comandar</button>
+    <button class="BotonB">Cuenta</button>
+    <a href="/src/features/panel_mesa/PanelMesa.html"><button class="BotonB">Mesas</button></a>
+    <div class="estado-usuario">
+      <span class="estado"></span>
+      <span class="usuario">Edwar</span>
+    </div>
+  </div>
+
+
+  <div class="filtros">
+   
+    <input class="buscar" type="search" placeholder="Buscar Producto">
+
+    <div class="selecciones">
+        <div>
+        <label class="label">Categorías</label>
+        <select>
+          <option>Selecciona la categoría</option>
+          <option>Bebida</option>
+          <option>Comidas</option>
+          <option>Postres</option>
+        </select>
+      </div>
+      <div>
+        <label class="label">Subcategorías</label>
+        <select>
+          <option>Selecciona la subcategoría</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="contenedor">
+  <div class="tabla-contenedor"> 
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Precio</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Item</td><td>$ Precio</td></tr>
+        <tr><td>Item</td><td>$ Precio</td></tr>
+        <tr><td>Item</td><td>$ Precio</td></tr>
+        <tr><td>Item</td><td>$ Precio</td></tr>
+        <tr><td>Item</td><td>$ Precio</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flechas">
+    <img src="/src/assets/FlechaArriba.jpg" alt="Flecha Arriba" class="flechaTop">
+    <img src="/src/assets/FlechaAbajo.jpg" alt="Flecha Abajo" class="flechaBot">
+  </div>
+
+    <div class="flechas2">
+    <img src="/src/assets/FlechaArriba.jpg" alt="Flecha Arriba" class="flechaTop">
+    <img src="/src/assets/FlechaAbajo.jpg" alt="Flecha Abajo" class="flechaBot">
+  </div>
+
+  <div class="tabla-contenedor"> 
+    <table>
+      <thead>
+        <tr><th>Cantidad</th><th>Item</th><th>Precio</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2</td><td>Item</td><td>$ Precio</td><td>
+        <tr><td>3</td><td>Item</td><td>$ Precio</td><td>
+        <tr><td>1</td><td>Item</td><td>$ Precio</td><td>
+        <tr><td>5</td><td>Item</td><td>$ Precio</td><td>
+        <tr><td>5</td><td>Item</td><td>$ Precio</td><td>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="Iconos">
+        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
+        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
+        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
+        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
+        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
+  </div>
+</div>
+
+
+  <div class="agregar_eliminar">
+    <img src="/src/assets/Menos.jpg" alt="" width="30" height="30">
+    <div class="numero">
+    <H2>1</H2>
+    </div>
+    <img src="/src/assets/Mas.jpg" alt="" width="30" height="30">
+  </div>
+
+  <div class="acciones">
+      <p class="Texto">Agregar Comentario</p>
+      <div class="comentario">
+      <textarea class="com" name="" id="" placeholder="Agrega un comentario"></textarea>
+      </div>
+    </div>
+
+    <div class="env_com">
+    <div>
+      <button class="guardar-boton">Guardar producto</button>
+    </div>
+    <div class="boton_enviar">
+        <a class="bot" href="/src/features/cuentas/cuentas.html">ENVIAR</a>
+    </div>
+    </div>
+</body>
+</html>
