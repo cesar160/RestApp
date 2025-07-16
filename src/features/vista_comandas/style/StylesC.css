@@ -187,22 +187,42 @@ tbody td {
   font-size: 20px;
 }
 
-.agregar_eliminar{
+.agregar_eliminar {
   display: flex;
   align-items: center;
-  margin-left: 40px;
+  justify-content: left;
+  gap: 15px;
+  margin: 20px;
 }
 
-.numero{
+.btn-red, .btn-green {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.btn-red {
+  background-color: #f44336;
+}
+
+.btn-green {
+  background-color: #4caf50;
+}
+
+.numero {
   background: #f90;
   color: #000;
-  font-weight: 600;
-  border-radius: 30px;
-  border: none;
-  padding-right: 10px;
-  padding-left: 10px;
-  margin: 10px;
-  font-size: xx-small;
+  font-weight: bold;
+  border-radius: 35px;
+  padding: 8px 4px;
+  font-size: 24px;
+  min-width: 35px;
+  text-align: center;
 }
 
 .env_com{
