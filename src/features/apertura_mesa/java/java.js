@@ -1,48 +1,59 @@
-// Obtener parámetros de la URL
-const params = new URLSearchParams(window.location.search);
-const mesa = params.get('mesa');
-const count = document.querySelector('.count');
-const btnGuardar = document.querySelector('.guardar');
-const btnCancelar = document.querySelector('.cancelar');
-const btnPlus = document.querySelector('.plus');
-const btnMinus = document.querySelector('.minus');
-const numeroMesa = document.getElementById('numero-mesa');
 
-// Mostrar número de mesa
-if (mesa && numeroMesa) {
-  numeroMesa.textContent = mesa.padStart(2, '0'); // para que aparezca "04"
-}
+document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const numeroMesa = params.get('mesa');
 
-// Manejar incremento
-btnPlus.addEventListener('click', () => {
-  let value = parseInt(count.textContent);
-  count.textContent = value + 1;
-});
+      const displayMesaElement = document.getElementById('mesa-seleccionada-numero');
+      if (displayMesaElement && numeroMesa) {
+        displayMesaElement.textContent = numeroMesa;
+      } else if (displayMesaElement) {
+        displayMesaElement.textContent = '';
+      }
 
-// Manejar decremento
-btnMinus.addEventListener('click', () => {
-  let value = parseInt(count.textContent);
-  if (value > 0) count.textContent = value - 1;
-});
+      const minusBtn = document.querySelector('.btn.minus');
+      const plusBtn = document.querySelector('.btn.plus');
+      const countSpan = document.getElementById('num-personas-display');
 
-// Guardar en localStorage
-btnGuardar.addEventListener('click', () => {
-  if (mesa) {
-    const personas = parseInt(count.textContent);
-    localStorage.setItem(`personas_mesa_${mesa}`, personas);
-  }
-});
+      let currentCount = parseInt(countSpan.textContent);
 
-// Cancelar: eliminar dato del localStorage
-btnCancelar.addEventListener('click', () => {
-  if (mesa) {
-    localStorage.removeItem(`personas_mesa_${mesa}`);
-  }
-});
+      minusBtn.addEventListener('click', () => {
+        if (currentCount > 0) {
+          currentCount--;
+          countSpan.textContent = currentCount;
+        }
+      });
 
-if (mesa) {
-  const guardadas = localStorage.getItem(`personas_mesa_${mesa}`);
-  if (guardadas !== null) {
-    count.textContent = guardadas;
-  }
-}
+      plusBtn.addEventListener('click', () => {
+        currentCount++;
+        countSpan.textContent = currentCount;
+      });
+
+
+      function abrirModal(idModal) {
+        document.getElementById(idModal).style.display = 'flex';
+      }
+
+      function cerrarModal(idModal) {
+        document.getElementById(idModal).style.display = 'none';
+      }
+
+      document.getElementById('open-guardar-modal').addEventListener('click', () => {
+        abrirModal('modal-confirmar-guardar-apertura');
+      });
+
+      document.getElementById('confirmarGuardarApertura').addEventListener('click', () => {
+        window.location.href = '/src/features/vista_comandas/Comandas.html';
+        cerrarModal('modal-confirmar-guardar-apertura');
+      });
+
+      document.getElementById('open-cancelar-modal').addEventListener('click', () => {
+        abrirModal('modal-confirmar-cancelar-apertura');
+      });
+
+      document.getElementById('confirmarCancelarApertura').addEventListener('click', () => {
+        window.location.href = '/src/features/panel_mesa/PanelMesa.html';
+        cerrarModal('modal-confirmar-cancelar-apertura');
+      });
+
+      window.cerrarModal = cerrarModal;
+    });
