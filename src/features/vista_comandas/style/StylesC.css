@@ -65,6 +65,15 @@ body {
   gap: 40px;
   padding: 20px;
 }
+
+.textos_tabla{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 200px;
+  padding-right: 200px;
+  max-height: 18px;
+}
+
 #placeholder{
   color: #00c800;
 }
@@ -110,6 +119,7 @@ select {
   display: flex;
   gap: 20px;
   padding: 0 20px;
+  margin-top: 0%;
 }
 
 .tabla-contenedor {
@@ -298,7 +308,7 @@ padding: 10px ;
   width: 24px;
   height: 24px;
   cursor: pointer;
-  margin-bottom: 100px;
+  margin-bottom: 90px;
 }
 
 .flechaBot {
@@ -312,6 +322,11 @@ padding: 10px ;
   width: 20px;
   height: 20px;
   cursor: pointer;
+} 
+
+.tabla-contenedor{
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .tabla-contenedor tbody{
@@ -360,3 +375,28 @@ padding: 10px ;
   color: white;
   border: 2px solid #f90;
 }
+
+.tabla-contenedor::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.tabla-contenedor {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;    
+}
+
+.tabla-contenedor::-webkit-scrollbar {
+  width: 0px;
+}
+.tabla-contenedor {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabla-contenedor tr.selected {
+  background-color: #333;
+  border: 1px solid #f90;
+}
+
+
