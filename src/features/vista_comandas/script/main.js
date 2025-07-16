@@ -30,10 +30,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const btnSumar = document.getElementById('btnSumar');
+  const btnRestar = document.getElementById('btnRestar');
+  const contador = document.getElementById('contador');
+
+  if (btnSumar && btnRestar && contador) {
+    btnSumar.addEventListener('click', () => {
+      let valor = parseInt(contador.textContent);
+      contador.textContent = valor + 1;
+    });
+
+    btnRestar.addEventListener('click', () => {
+      let valor = parseInt(contador.textContent);
+      if (valor > 1) {
+        contador.textContent = valor - 1;
+      }
+    });
+  }
+
   const confirmarSalir = document.getElementById('confirmarSalir');
   if (confirmarSalir) {
     confirmarSalir.addEventListener('click', () => {
       window.location.href = "/src/features/panel_mesa/PanelMesa.html";
     });
   }
+  
 });
