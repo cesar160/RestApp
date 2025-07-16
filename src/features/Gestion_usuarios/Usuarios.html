@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Usuarios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="/src/features/Gestion_usuarios/stylesU/StylesU.css" />
+  <meta charset="UTF-8">
+  <title>Lista de Usuarios</title>
+  <link rel="stylesheet" href="stylesU/StylesU.css">
 </head>
 <body>
-  <div class="Contenedor">
-    <header class="header">
-      <div class="Flecha-atras">⟵</div>
-      <h1>Lista de Usuarios</h1>
-      <button class="btn-agregar" id="btnAgregar">
-        <span><div class="x">+</div></span><div class="btn-agragar">Agregar Usuario</div>
-      </button>
-      <button class="btn" id="btnEliminar">
-        <span><div class="x">X</div></span><div>Eliminar Usuario</div>
-      </button>
-    </header>
+  <header>
+    <div class="Flecha-atras">⟵</div>
+    <h1>Lista de Usuarios</h1>
+    <div class="botones-header">
+      <button id="btnAgregar">Agregar Usuarios</button>
+      <button id="btnEliminar"><span class="X">X</span>Eliminar Usuario</button>
+    </div>
+  </header>
 
-    <table class="tabla_usuarios">
-      <thead>
-        <tr>
-          <th>ID Del Usuario</th>
-          <th>Nombre</th>
-          <th>Clave Asignada</th>
-          <th>Tipo de Usuario</th>
-        </tr>
-      </thead>
-      <tbody id="tablaUsuariosBody">
-}      </tbody>
-    </table>
-  </div>
-<script src="/src/features/Gestion_usuarios/scrip/java.js"></script>
+  <table>
+    <thead>
+      <tr>
+        <th>ID Del Usuario</th>
+        <th>Nombre</th>
+        <th>Clave Asignada</th>
+        <th>Tipo de Usuario</th>
+      </tr>
+    </thead>
+    <tbody id="tablaUsuarios">
+      
+    </tbody>
+  </table>
+
   
+  <div class="modal" id="modalAgregar">
+    <div class="modal-contenido">
+      <h2>Agregar Usuario</h2>
+      <input type="text" id="nombre" placeholder="Nombre">
+      <input type="text" id="apellidoP" placeholder="Apellido Paterno">
+      <input type="text" id="apellidoM" placeholder="Apellido Materno">
+      <div class="radio-container">
+        <label><input type="radio" name="tipo" value="Admin"> Administrador</label>
+        <label><input type="radio" name="tipo" value="Mesero" checked> Mesero</label>
+      </div>
+      <button id="guardarUsuario">Guardar Usuario</button>
+    </div>
+  </div>
+
+  
+  <div class="modal" id="modalEliminar">
+    <div class="modal-contenido">
+      <p id="mensajeEliminar"></p>
+      <div class="opciones">
+        <button id="confirmarEliminar">Sí</button>
+        <button id="cancelarEliminar">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script/Usuarios.js"></script>
 </body>
 </html>

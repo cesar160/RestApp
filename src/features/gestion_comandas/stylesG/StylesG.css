@@ -27,6 +27,7 @@ body {
 .header .Flecha-atras {
   font-size: 35px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .header h1 {
@@ -56,10 +57,12 @@ body {
   padding-right: 6px;
   padding-bottom: 2px;
   padding-top: 2px;
+  font-weight: bold;
+  margin-right: 5px;
 }
 
 
-.ntn-cancelar span {
+.btn-cancelar span {
   font-size: 20px;
 }
 
