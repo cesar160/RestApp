@@ -14,7 +14,7 @@
         <label for="personas">Número de personas</label>
         <div class="botones-personas">
           <button class="btn minus">−</button>
-          <span class="count">0</span>
+          <span class="count" id="num-personas-display">0</span>
           <button class="btn plus">+</button>
         </div>
 
@@ -33,11 +33,45 @@
 
       <div class="right">
         <div class="mesa-box">
-          <img src="/src/assets/mesa.png" alt="Icono Mesa" class="mesa-img" />
-        </div>
+          <img src="/src/assets/icon mesa.png" alt="Icono Mesa" class="mesa-img" />
+          <span class="mesa-numero-display" id="mesa-seleccionada-numero"></span> </div>
       </div>
     </div>
     <a href="/src/features/panel_mesa/PanelMesa.html" class="volver">Volver al listado de mesas</a>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Lógica para obtener el número de mesa de la URL
+      const params = new URLSearchParams(window.location.search);
+      const numeroMesa = params.get('mesa'); // 'mesa' es el nombre del parámetro
+
+      const displayMesaElement = document.getElementById('mesa-seleccionada-numero');
+      if (displayMesaElement && numeroMesa) {
+        displayMesaElement.textContent = numeroMesa; // ¡Cambio aquí! Solo el número
+      } else if (displayMesaElement) {
+        displayMesaElement.textContent = ''; // Lo dejamos vacío si no hay parámetro, o puedes poner un valor por defecto si lo prefieres
+      }
+
+      // 2. Lógica para los botones de incrementar/decrementar
+      const minusBtn = document.querySelector('.btn.minus');
+      const plusBtn = document.querySelector('.btn.plus');
+      const countSpan = document.getElementById('num-personas-display');
+
+      let currentCount = parseInt(countSpan.textContent);
+
+      minusBtn.addEventListener('click', () => {
+        if (currentCount > 0) {
+          currentCount--;
+          countSpan.textContent = currentCount;
+        }
+      });
+
+      plusBtn.addEventListener('click', () => {
+        currentCount++;
+        countSpan.textContent = currentCount;
+      });
+    });
+  </script>
 </body>
 </html>

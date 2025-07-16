@@ -89,7 +89,6 @@ input[type="password"] {
 }
 
 .guardar {
-
   background-color: #f39c12;
   color: white;
   border: none;
@@ -107,25 +106,32 @@ input[type="password"] {
   cursor: pointer;
 }
 
-.right .mesa-box {
+.mesa-box {
   background-color: #000;
   border: 2px solid #f39c12;
   border-radius: 10px;
   text-align: center;
   width: 200px;
-  height: 200px;;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;   
 }
 
 .mesa-img {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  margin-bottom: 10px;
-  justify-items: center;
-  position: relative;
-  top: 50px;
+ 
 }
 
+.mesa-numero-display {
+  color: white; 
+  font-weight: bold; 
+  font-size: 20px; 
+  position: relative;
+}
 .volver {
   display: inline-block;
   margin-top: 30px;
