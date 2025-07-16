@@ -21,7 +21,6 @@
 
 
   <div class="filtros">
-   
     <input class="buscar" type="search" placeholder="Buscar Producto">
 
     <div class="selecciones">
@@ -29,9 +28,9 @@
         <label class="label">Categorías</label>
         <select>
           <option>Selecciona la categoría</option>
-          <option>Bebida</option>
-          <option>Comidas</option>
-          <option>Postres</option>
+          <option value="Bebida">Bebida</option>
+          <option value="Comidas">Comidas</option>
+          <option value="Postres">Postres</option>
         </select>
       </div>
       <div>
@@ -41,6 +40,11 @@
         </select>
       </div>
     </div>
+  </div>
+
+  <div class="textos_tabla">
+    <h3>Productos</h3>
+    <h3>Productos seleccionados</h3>
   </div>
 
   <div class="contenedor">
@@ -69,33 +73,24 @@
     <img src="/src/assets/FlechaAbajo.jpg" alt="Flecha Abajo" class="flechaBot">
   </div>
 
-  <div class="tabla-contenedor"> 
+  <div class="tabla-contenedor">
+    <div>
+      <h1></h1>
+      <h1></h1>
+    </div>
     <table>
       <thead>
         <tr><th>Cantidad</th><th>Item</th><th>Precio</th><th></th></tr>
       </thead>
-      <tbody>
-        <tr><td>2</td><td>Item</td><td>$ Precio</td><td>
-        <tr><td>3</td><td>Item</td><td>$ Precio</td><td>
-        <tr><td>1</td><td>Item</td><td>$ Precio</td><td>
-        <tr><td>5</td><td>Item</td><td>$ Precio</td><td>
-        <tr><td>5</td><td>Item</td><td>$ Precio</td><td>
+      <tbody id="tabla-derecha-body">
       </tbody>
     </table>
-  </div>
-
-  <div class="Iconos">
-        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
-        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
-        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
-        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
-        <img src="/src/assets/Menos.jpg" class="icono-eliminar"></td></tr>
   </div>
 </div>
 
 
   <div class="agregar_eliminar">
-  <button id="btnRestar" class="btn-red">–</button>
+  <button id="btnRestar" class="btn-red">-</button>
   <div class="numero" id="contador">1</div>
   <button id="btnSumar" class="btn-green">+</button>
 </div>
@@ -110,7 +105,7 @@
 
     <div class="env_com">
     <div>
-      <button class="guardar-boton">Guardar producto</button>
+      <button id="btnGuardarProducto" class="guardar-boton">Guardar producto</button>
     </div>
     <div class="boton_enviar">
         <a class="bot" href="/src/features/cuentas/cuentas.html">ENVIAR</a>
