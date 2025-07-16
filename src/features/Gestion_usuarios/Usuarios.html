@@ -12,10 +12,10 @@
     <header class="header">
       <div class="Flecha-atras">⟵</div>
       <h1>Lista de Usuarios</h1>
-       <button class="btn-agregar">
-      <span><div class="x">+</div></span><div class="btn-agragar">Agregar Usuario</div>
+      <button class="btn-agregar" id="btnAgregar">
+        <span><div class="x">+</div></span><div class="btn-agragar">Agregar Usuario</div>
       </button>
-      <button class="btn">
+      <button class="btn" id="btnEliminar">
         <span><div class="x">X</div></span><div>Eliminar Usuario</div>
       </button>
     </header>
@@ -29,45 +29,12 @@
           <th>Tipo de Usuario</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>#0576</td>
-          <td>Andres G.</td>
-          <td>1234</td>
-          <td>Mesero</td>
-        </tr>
-        <tr>
-          <td>#0576</td>
-          <td>Andres G.</td>
-          <td>E725</td>
-          <td>Mesero</td>
-        </tr>
-        <tr>
-          <td>#0576</td>
-          <td>Andres G.</td>
-          <td>6091</td>
-          <td>Mesero</td>
-        </tr>
-         <tr>
-          <td>#0576</td>
-          <td>Andres G.</td>
-          <td>5451</td>
-          <td>Mesero</td>
-        </tr>
-        <tr>
-          <td>#0576</td>
-          <td>Andres G.</td>
-          <td>2330</td>
-          <td>Mesero</td>
-        </tr>
-         <tr>
-          <td>#0576</td>
-          <td>Andres G.</td>
-          <td>2304</td>
-          <td>Mesero</td>
-        </tr>
+      <tbody id="tablaUsuariosBody">
+        <!-- Usuarios cargados dinámicamente -->
       </tbody>
     </table>
   </div>
+<script src="/src/features/Gestion_usuarios/scrip/java.js"></script>
+  
 </body>
 </html>
