@@ -1,5 +1,4 @@
 
-// COPIAR DESDE AQUÍ
 function abrirModal(id) {
   document.getElementById(id).style.display = 'flex';
 }
@@ -96,7 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
     mostrarProductos(filtrados);
   });
 
-  mostrarProductos(productos);
+    const inputBuscar = document.querySelector('.buscar');
+
+  inputBuscar.addEventListener('input', () => {
+    const valor = inputBuscar.value.trim().toLowerCase();
+    const filtrados = productos.filter(p =>
+      p.nombre.toLowerCase().startsWith(valor)
+    );
+    mostrarProductos(filtrados);
+  });
+
 
   const tablaScrollContainer = document.querySelectorAll('.tabla-contenedor')[0];
   const flechaArriba = document.querySelector('.flechas .flechaTop');
@@ -129,9 +137,17 @@ document.addEventListener('DOMContentLoaded', () => {
   tbodyDerecha.addEventListener('click', (e) => {
     if (e.target.classList.contains('eliminar-producto')) {
       const fila = e.target.closest('tr');
-      if (fila) fila.remove();
+      const cantidadCelda = fila.querySelector('td');
+      let cantidad = parseInt(cantidadCelda.textContent);
+
+      if (cantidad > 1) {
+        cantidadCelda.textContent = cantidad - 1;
+      } else {
+        fila.remove();
+      }
     }
   });
+
 
   const tablaScrollDerecha = document.querySelectorAll('.tabla-contenedor')[1];
   const flechaArribaDer = document.querySelector('.flechas2 .flechaTop');
