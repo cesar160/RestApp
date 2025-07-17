@@ -40,4 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         contenedor.appendChild(nuevaMesa);
         contadorMesas++; 
     });
+
+    
 });
