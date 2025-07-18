@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Panel de Mesas</title>
+  <title>Panel de Mesas Meseros</title>
   <link rel="stylesheet" href="/src/features/panel_mesa/styles/stylesM.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 <body>
   <div class="barra-superior">
     <div class="lado-izquierdo">
-      <a href="#"><img src="/src/assets/Notificacion.png" alt="Notificación" class="icono-barra"></a>
+      <img src="/src/assets/Notificacion.png" alt="Notificación" id="btnCampana" class="icono-barra">
       <button id="boton-agregar-aviso" class="boton-notificacion">Mis mesas</button>
     </div>
     <a href="/src/features/login/login.html"><img src="/src/assets/exit.png" alt="Salir" class="salir"></a>
@@ -47,6 +47,19 @@
         <button class="guardar" onclick="guardarCodigo()">Guardar</button>
         <button class="cancelar" onclick="cerrarModal()">Cancelar</button>
       </div>
+    </div>
+  </div>
+
+  <div id="modalAvisos" class="modal-avisos">
+    <div class="avisos-content">
+      <span class="cerrar-modal" onclick="cerrarModalAvisos()">×</span>
+      <h2>Panel de mesas</h2>
+      <div class="avisos-header">
+        <strong>Avisos :</strong>
+        <span id="fechaAvisos"></span>
+      </div>
+      <ul id="listaAvisos" class="avisos-lista">
+      </ul>
     </div>
   </div>
 
