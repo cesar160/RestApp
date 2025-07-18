@@ -11,7 +11,7 @@
 
   <div class="barra-superior">
     <div class="lado-izquierdo">
-      <a href="#"><img src="/src/assets/Notificacion.png" alt="Notificación" class="icono-barra"></a>
+      <img src="/src/assets/Notificacion.png" alt="Notificación" id="btnCampana" class="icono-barra">
       <button id="openModalBtn" class="boton-notificacion">Agregar avisos</button>
     </div>
     <a href="/src/features/login/login.html"><img src="/src/assets/exit.png" alt="Salir" class="salir"></a>
@@ -59,6 +59,19 @@
 
         </div>
     </div>
+
+    <div id="modalAvisos" class="modal-avisos">
+    <div class="avisos-content">
+      <span class="cerrar-modal" onclick="cerrarModalAvisos()">×</span>
+      <h2>Panel de mesas</h2>
+      <div class="avisos-header">
+        <strong>Avisos :</strong>
+        <span id="fechaAvisos"></span>
+      </div>
+      <ul id="listaAvisos" class="avisos-lista">
+      </ul>
+    </div>
+  </div>
     
   <script src="/src/features/panel_mesa/scripts/avisos.js"></script>
 </body>

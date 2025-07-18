@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function cargarAvisos() {
   try {
-    const response = await fetch('http://localhost:8080/api/avisos'); // <-- Aqui pon la api
+    const response = await fetch('http://localhost:7000/avisos'); // <-- Aqui pon la api
     if (!response.ok) throw new Error('Error al obtener avisos');
 
     const data = await response.json();

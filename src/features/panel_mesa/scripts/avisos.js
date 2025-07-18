@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const openModalBtn = document.getElementById('openModalBtn');
     const closeModalBtn = document.querySelector('.close-btn');
     const modalForm = document.querySelector('.modal-content form');
+    const modalAvisos = document.getElementById('modalAvisos');
+    const listaAvisos = document.getElementById('listaAvisos');
+    const fechaAvisos = document.getElementById('fechaAvisos');
 
     
     const openModal = () => {
@@ -82,3 +85,49 @@ subirBtn.addEventListener("click", () => {
         alert("❌ " + err.message);
     });
 });
+
+async function cargarAvisos() {
+  try {
+    const response = await fetch('http://localhost:7000/avisos'); // <-- Aqui pega la apij
+    if (!response.ok) throw new Error('Error al obtener avisos');
+
+    const data = await response.json();
+
+    listaAvisos.innerHTML = "";
+    data.forEach(aviso => {
+      const li = document.createElement("li");
+      li.textContent = aviso.mensaje || aviso;
+      listaAvisos.appendChild(li);
+    });
+
+    const hoy = new Date();
+    fechaAvisos.textContent = hoy.toLocaleDateString('es-MX', {
+      year: 'numeric', month: '2-digit', day: '2-digit'
+    });
+
+  } catch (error) {
+    console.error("Error cargando avisos:", error);
+    listaAvisos.innerHTML = "<li>Error al cargar los avisos.</li>";
+  }
+}
+
+document.getElementById('btnCampana').addEventListener('click', async () => {
+  await cargarAvisos();
+  modalAvisos.style.display = "flex";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modalAvisos) {
+    cerrarModalAvisos();
+  }
+});
+
+function cerrarModalAvisos() {
+  modalAvisos.style.display = "none";
+}
+
+setInterval(() => {
+  if (modalAvisos.style.display === "flex") {
+    cargarAvisos();
+  }
+}, 30000);
