@@ -162,3 +162,58 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
+.modal-avisos {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.avisos-content {
+  position: relative;
+  background-color: #1f1f1f;
+  padding: 30px 40px;
+  border-radius: 15px;
+  color: white;
+  width: 600px;
+  max-width: 90%;
+  box-shadow: 0 0 10px #000;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cerrar-modal:hover {
+  color: #f39c12;
+}
+
+.avisos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.avisos-lista {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.avisos-lista li {
+  margin-bottom: 10px;
+}

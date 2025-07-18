@@ -1,8 +1,11 @@
 let contadorMesas = 2; 
 const modal = document.getElementById("modalMesero");
+const modalAvisos = document.getElementById('modalAvisos');
+const listaAvisos = document.getElementById('listaAvisos');
+const fechaAvisos = document.getElementById('fechaAvisos');
 
 document.getElementById("boton-agregar-aviso").addEventListener("click", function (event) {
-  event.preventDefault(); // evita redirección
+  event.preventDefault(); 
   modal.style.display = "flex";
 });
 
@@ -17,7 +20,6 @@ function guardarCodigo() {
     return;
   }
 
-  // Aquí haces la redirección
   window.location.href = "/src/features/mesas_asignadas/index.html";
 }
 
@@ -65,3 +67,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
+
+async function cargarAvisos() {
+  try {
+    const response = await fetch('http://localhost:8080/api/avisos'); // <-- Aqui pon la api
+    if (!response.ok) throw new Error('Error al obtener avisos');
+
+    const data = await response.json();
+
+    listaAvisos.innerHTML = "";
+    data.forEach(aviso => {
+      const li = document.createElement("li");
+      li.textContent = aviso.mensaje || aviso;
+      listaAvisos.appendChild(li);
+    });
+
+    const hoy = new Date();
+    fechaAvisos.textContent = hoy.toLocaleDateString('es-MX', {
+      year: 'numeric', month: '2-digit', day: '2-digit'
+    });
+
+  } catch (error) {
+    console.error("Error cargando avisos:", error);
+    listaAvisos.innerHTML = "<li>Error al cargar los avisos.</li>";
+  }
+}
+
+document.getElementById('btnCampana').addEventListener('click', async () => {
+  await cargarAvisos();
+  modalAvisos.style.display = "flex";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modalAvisos) {
+    cerrarModalAvisos();
+  }
+});
+
+function cerrarModalAvisos() {
+  modalAvisos.style.display = "none";
+}
+
+setInterval(() => {
+  if (modalAvisos.style.display === "flex") {
+    cargarAvisos();
+  }
+}, 30000);
