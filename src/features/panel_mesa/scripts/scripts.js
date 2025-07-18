@@ -1,4 +1,26 @@
 let contadorMesas = 2; 
+const modal = document.getElementById("modalMesero");
+
+document.getElementById("boton-agregar-aviso").addEventListener("click", function (event) {
+  event.preventDefault(); // evita redirección
+  modal.style.display = "flex";
+});
+
+function cerrarModal() {
+  modal.style.display = "none";
+}
+
+function guardarCodigo() {
+  const codigo = document.getElementById("codigoMesero").value;
+  if (codigo.trim() === "") {
+    alert("Por favor ingrese un código");
+    return;
+  }
+
+  // Aquí haces la redirección
+  window.location.href = "/src/features/mesas_asignadas/index.html";
+}
+
 
 function inicializarMesaEvents(mesaElement) {
     const numeroMesa = mesaElement.querySelector('.numero').textContent;
