@@ -13,7 +13,14 @@
             <div class="menu-grid">
                 <div class="menu-item">
                     <a href=""><img src="/src/assets/estadistica.png" alt="Estadísticas"></a>
-                    <span>Estadísticas</span>
+                    <div id="box">
+                         <div id="box_menu">
+                            <button id="btnGraph"><span>Estadísticas</span></button>
+                                 </div>
+                                     <div id="box_graph">
+                                 <canvas id="myChart"></canvas>
+                                    </div>
+                    </div>
                 </div>
                 <div class="menu-item">
                     <a href="/src/features/Gestion_usuarios/Usuarios.html"><img src="/src/assets/user.png" alt="Usuarios"></a>
@@ -30,5 +37,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/src/features/menu_admin/script/script.js"></script>
 </body>
 </html>
