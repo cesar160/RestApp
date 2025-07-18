@@ -8,12 +8,12 @@ const mensajeEliminar = document.getElementById("mensajeEliminar");
 let idCounter = 576;
 let usuarioSeleccionado = null;
 
-// Mostrar modal agregar
+
 btnAgregar.onclick = () => {
   modalAgregar.style.display = "flex";
 };
 
-// Guardar usuario
+
 document.getElementById("guardarUsuario").onclick = () => {
   const nombre = document.getElementById("nombre").value.trim();
   const apellidoP = document.getElementById("apellidoP").value.trim();
@@ -23,7 +23,7 @@ document.getElementById("guardarUsuario").onclick = () => {
   if (!nombre || !apellidoP || !apellidoM) return alert("Completa todos los campos.");
 
   const fila = document.createElement("tr");
-  const clave = Math.floor(Math.random() * 9000 + 1000); // Clave aleatoria
+  const clave = Math.floor(Math.random() * 9000 + 1000); 
 
   fila.innerHTML = `
     <td>#${idCounter}</td>
@@ -60,7 +60,7 @@ btnEliminar.onclick = () => {
   modalEliminar.style.display = "flex";
 };
 
-// Confirmar eliminación
+
 document.getElementById("confirmarEliminar").onclick = () => {
   if (usuarioSeleccionado) {
     tabla.removeChild(usuarioSeleccionado);
@@ -69,12 +69,11 @@ document.getElementById("confirmarEliminar").onclick = () => {
   modalEliminar.style.display = "none";
 };
 
-// Cancelar eliminación
 document.getElementById("cancelarEliminar").onclick = () => {
   modalEliminar.style.display = "none";
 };
 
-// Limpiar campos
+
 function limpiarCampos() {
   document.getElementById("nombre").value = "";
   document.getElementById("apellidoP").value = "";
