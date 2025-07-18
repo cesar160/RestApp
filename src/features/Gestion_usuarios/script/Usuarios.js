@@ -1,83 +1,84 @@
-const btnAgregar = document.getElementById("btnAgregar");
-const btnEliminar = document.getElementById("btnEliminar");
-const modalAgregar = document.getElementById("modalAgregar");
-const modalEliminar = document.getElementById("modalEliminar");
-const tabla = document.getElementById("tablaUsuarios");
-const mensajeEliminar = document.getElementById("mensajeEliminar");
+document.addEventListener("DOMContentLoaded", () => {
+  const tabla = document.querySelector(".tabla_usuarios tbody");
+  let filaSeleccionada = null;
 
-let idCounter = 576;
-let usuarioSeleccionado = null;
+  // Mostrar modal agregar
+  document.querySelector(".btn-agregar").addEventListener("click", () => {
+    document.getElementById("modalAgregar").style.display = "flex";
+  });
 
+  // Cerrar modal agregar
+  document.getElementById("cerrarAgregar").addEventListener("click", () => {
+    document.getElementById("modalAgregar").style.display = "none";
+  });
 
-btnAgregar.onclick = () => {
-  modalAgregar.style.display = "flex";
-};
-
-
-document.getElementById("guardarUsuario").onclick = () => {
-  const nombre = document.getElementById("nombre").value.trim();
-  const apellidoP = document.getElementById("apellidoP").value.trim();
-  const apellidoM = document.getElementById("apellidoM").value.trim();
+  // Guardar nuevo usuario
+ document.getElementById("guardarUsuario").addEventListener("click", () => {
+  const nombre = document.getElementById("nombre").value;
+  const apellidoP = document.getElementById("apellidoP").value;
+  const apellidoM = document.getElementById("apellidoM").value;
+  const clave = document.getElementById("clave").value;
   const tipo = document.querySelector('input[name="tipo"]:checked').value;
 
-  if (!nombre || !apellidoP || !apellidoM) return alert("Completa todos los campos.");
+  if (nombre && apellidoP && apellidoM && clave) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <th>${nombre}</th>
+      <th>${apellidoP}</th>
+      <th>${apellidoM}</th>
+      <th>${clave}</th>
+      <th>${tipo}</th>
+    `;
+    tr.addEventListener("click", () => seleccionarFila(tr));
+    tabla.appendChild(tr);
 
-  const fila = document.createElement("tr");
-  const clave = Math.floor(Math.random() * 9000 + 1000); 
+    document.getElementById("modalAgregar").style.display = "none";
 
-  fila.innerHTML = `
-    <td>#${idCounter}</td>
-    <td>${nombre} ${apellidoP} ${apellidoM}</td>
-    <td>${clave}</td>
-    <td>${tipo}</td>
-  `;
-
-  fila.onclick = () => seleccionarUsuario(fila);
-
-  tabla.appendChild(fila);
-  idCounter++;
-
-  modalAgregar.style.display = "none";
-  limpiarCampos();
-};
-
-// Seleccionar fila
-function seleccionarUsuario(fila) {
-  [...tabla.rows].forEach(row => row.classList.remove("selected"));
-  fila.classList.add("selected");
-  usuarioSeleccionado = fila;
-}
-
-// Mostrar modal eliminar
-btnEliminar.onclick = () => {
-  if (!usuarioSeleccionado) {
-    alert("Selecciona un usuario para eliminar.");
-    return;
+    // Limpiar inputs
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellidoP").value = "";
+    document.getElementById("apellidoM").value = "";
+    document.getElementById("clave").value = "";
+  } else {
+    alert("Completa todos los campos.");
   }
-  const nombre = usuarioSeleccionado.cells[1].textContent.split(" ")[0];
-  const id = usuarioSeleccionado.cells[0].textContent;
-  mensajeEliminar.textContent = `¿Desea eliminar al usuario ${id} ${nombre}?`;
-  modalEliminar.style.display = "flex";
-};
+});
 
 
-document.getElementById("confirmarEliminar").onclick = () => {
-  if (usuarioSeleccionado) {
-    tabla.removeChild(usuarioSeleccionado);
-    usuarioSeleccionado = null;
+  // Seleccionar fila
+  function seleccionarFila(fila) {
+    if (filaSeleccionada) filaSeleccionada.classList.remove("seleccionada");
+    filaSeleccionada = fila;
+    filaSeleccionada.classList.add("seleccionada");
   }
-  modalEliminar.style.display = "none";
-};
 
-document.getElementById("cancelarEliminar").onclick = () => {
-  modalEliminar.style.display = "none";
-};
+  // Botón eliminar
+  document.querySelector(".btn").addEventListener("click", () => {
+    if (filaSeleccionada) {
+      document.getElementById("mensajeEliminar").textContent =
+        "¿Desea eliminar al usuario seleccionado?";
+      document.getElementById("modalEliminar").style.display = "flex";
+    } else {
+      alert("Selecciona un usuario para eliminar.");
+    }
+  });
 
+  // Confirmar eliminación
+  document.getElementById("confirmarEliminar").addEventListener("click", () => {
+    if (filaSeleccionada) {
+      filaSeleccionada.remove();
+      filaSeleccionada = null;
+      document.getElementById("modalEliminar").style.display = "none";
+    }
+  });
 
-function limpiarCampos() {
-  document.getElementById("nombre").value = "";
-  document.getElementById("apellidoP").value = "";
-  document.getElementById("apellidoM").value = "";
-  document.querySelector('input[value="Mesero"]').checked = true;
-}
+  // Cancelar eliminación
+  document.getElementById("cancelarEliminar").addEventListener("click", () => {
+    document.getElementById("modalEliminar").style.display = "none";
+  });
 
+  // Agregar funcionalidad de selección a filas ya existentes
+  document.querySelectorAll(".tabla_usuarios tbody tr").forEach((tr) => {
+    tr.addEventListener("click", () => seleccionarFila(tr));
+  });
+});
