@@ -151,6 +151,9 @@ body {
             border: 1px solid #F39C12;
             color: white;
             padding: 20px 35px;
+        }
+
+        .button-group a{
             text-decoration: none;
         }
 
@@ -172,8 +175,8 @@ body {
             position: relative;
         }
         
-        .receipt-table{
-            
+        .receipt-table header{
+            justify-content: space-between;
         }
 
         .receipt-header p {
