@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Panel de Mesass</title>
+  <title>Panel de Mesas</title>
   <link rel="stylesheet" href="/src/features/panel_mesa/styles/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
@@ -21,15 +21,7 @@
     <img src="/src/assets/agregar.png" alt="Agregar">
   </div>
 
-<div class="contenedor" id="contenedor-mesas">
-    <a href="/src/features/apertura_mesa/vista.html?mesa=01" class="mesa libre">
-      <span class="numero">01</span>
-      <img src="/src/assets/icono.png" class="icono" alt="Mesa" />
-      <span class="estado">Libre</span>
-      <div class="icono-eliminar">
-        <img src="/src/assets/eliminar.png" alt="Eliminar">
-      </div>
-    </a>
+  <div class="contenedor" id="contenedor-mesas">
   </div>
 
   <div id="modal-container" class="modal-container">
@@ -40,20 +32,9 @@
           <label for="contenido">Texto</label>
           <input type="text" id="contenido" placeholder="Ingrese el aviso">
         </div>
-        <div class="form-group">
-          <label>Fecha</label>
-          <div class="date-picker">
-            <input type="text" id="año" placeholder="Año">
-            <input type="text" id="mes" placeholder="Mes">
-            <input type="text" id="dia" placeholder="Día">
-          </div>
-        </div>
         <button type="submit" class="submit-btn" id="subirBtn">Subir aviso</button>
       </form>
     </div>
-<<<<<<< HEAD
-    <script src="/src/features/panel_mesa/scripts/scripts.js"></script>
-=======
   </div>
 
   <div id="modalAvisos" class="modal-avisos">
@@ -68,8 +49,7 @@
     </div>
   </div>
 
->>>>>>> f98b46c130fe77444e2649c36e3913d077edbbad
-  <script src="/src/features/panel_mesa/scripts/avisos.js"></script>
   <script src="/src/features/panel_mesa/scripts/scripts.js"></script>
+  <script src="/src/features/panel_mesa/scripts/avisos.js"></script>
 </body>
 </html>
