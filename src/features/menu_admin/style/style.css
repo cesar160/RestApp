@@ -91,4 +91,8 @@ canvas {
     margin: auto;
 }
 
+body button{
+    background-color: black;
+    color: white;
+}
 
