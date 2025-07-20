@@ -24,9 +24,14 @@ body {
   margin-bottom: 30px;
 }
 
+.header a{
+  text-decoration: none;
+}
+
 .header .Flecha-atras {
   font-size: 35px;
   cursor: pointer;
+  color: #fff;
 }
 
 .header h1 {
