@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="estado">Libre</span>
             <div class="icono-eliminar">
                 <img src="/src/assets/eliminar.png" alt="Eliminar">
-            </div>
-        `;
+            </div> `
+        
 
         inicializarMesaEvents(nuevaMesa);
 
