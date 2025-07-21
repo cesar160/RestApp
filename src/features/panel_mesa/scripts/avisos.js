@@ -2,10 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContainer = document.getElementById('modal-container');
     const openModalBtn = document.getElementById('openModalBtn');
     const closeModalBtn = document.querySelector('.close-btn');
-<<<<<<< HEAD
-     const modalForm = document.querySelector('.modalform');
-=======
->>>>>>> d682b8a4e5bbd3f7e46b411f6cba540a3e8624f3
+
     const subirBtn = document.getElementById("subirBtn");
     const modalAvisos = document.getElementById('modalAvisos');
     const listaAvisos = document.getElementById('listaAvisos');
@@ -85,15 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function cargarAvisos() {
-<<<<<<< HEAD
+
   try {
     const response = await fetch('http://localhost:7000/avisos'); 
     if (!response.ok) throw new Error('Error al obtener avisos');
-=======
-        try {
-            const response = await fetch('http://localhost:7000/avisos');
-            if (!response.ok) throw new Error('Error al obtener avisos');
->>>>>>> d682b8a4e5bbd3f7e46b411f6cba540a3e8624f3
+
 
             const data = await response.json();
             listaAvisos.innerHTML = "";
