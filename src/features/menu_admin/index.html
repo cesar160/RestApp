@@ -12,16 +12,18 @@
             <h1 class="menu-title">Menu</h1>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <a href=""><img src="/src/assets/estadistica.png" alt="Estadísticas"></a>
-                    <div id="box">
-                         <div id="box_menu">
-                            <button id="btnGraph"><span>Estadísticas</span></button>
-                                 </div>
-                                     <div id="box_graph">
-                                 <canvas id="myChart"></canvas>
-                                    </div>
-                    </div>
+                    <img src="/src/assets/estadistica.png" alt="Estadísticas" id="btnMostrarGrafica">
+                    <span id="btnMostrarGrafica">Estadísticas</span>
                 </div>
+                    <div id="modalGrafica" class="modal-oscuro">
+                        <div class="contenido-modal">
+                             <span class="cerrar" id="cerrarModalGrafica">&times;</span>
+                             <h2>Ganancia por mesa</h2>
+                             <div class="canvas-container">
+                                <canvas id="graficoGananciaMesa"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 <div class="menu-item">
                     <a href="/src/features/Gestion_usuarios/Usuarios.html"><img src="/src/assets/user.png" alt="Usuarios"></a>
                     <span>Usuarios</span>

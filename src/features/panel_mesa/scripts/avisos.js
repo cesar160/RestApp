@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContainer = document.getElementById('modal-container');
     const openModalBtn = document.getElementById('openModalBtn');
     const closeModalBtn = document.querySelector('.close-btn');
-    const modalForm = document.querySelector('.modal-content form');
+     const modalForm = document.querySelector('.modalform');
     const subirBtn = document.getElementById("subirBtn");
     const modalAvisos = document.getElementById('modalAvisos');
     const listaAvisos = document.getElementById('listaAvisos');
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function cargarAvisos() {
   try {
-    const response = await fetch('http://localhost:7000/avisos'); // <--    Aqui pon tu api
+    const response = await fetch('http://localhost:7000/avisos'); 
     if (!response.ok) throw new Error('Error al obtener avisos');
 
     const data = await response.json();

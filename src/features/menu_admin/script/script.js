@@ -1,45 +1,62 @@
-fetch('http://localhost:7000/stats/average')
-    .then(response => response.json())
-    .then(jsonData => {
-        console.log("Respuesta del servidor:", jsonData);
+document.getElementById('btnMostrarGrafica').addEventListener('click', () => {
+  const modal = document.getElementById('modalGrafica');
+  modal.style.display = 'flex';
 
-        document.getElementById('box_graph').classList.add('visible');
+  setTimeout(() => {
+    fetch('http://localhost:7000/stats/average')
+      .then(res => res.json())
+      .then(data => {
+        const labels = data.map(item => `Mesa ${item.id_mesa}`);
+        const valores = data.map(item => item.total_ganancia);
 
-        const labels = jsonData.name;
-        const cantidades = jsonData.amount;
-        const ingresos = jsonData.price.map((p, i) => p * jsonData.amount[i]);
+        const ctx = document.getElementById('graficoGananciaMesa').getContext('2d');
+        if (window.graficoMesa) {
+          window.graficoMesa.destroy();
+        }
 
-        const ctx = document.getElementById('myChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Cantidad vendida',
-                        data: cantidades,
-                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Ingreso total ($)',
-                        data: ingresos,
-                        backgroundColor: 'rgba(255, 159, 64, 0.5)',
-                        borderColor: 'rgba(255, 159, 64, 1)',
-                        borderWidth: 1
-                    }
-                ]
+        window.graficoMesa = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Ganancia por mesa ($)',
+              data: valores,
+              backgroundColor: 'rgba(255, 159, 64, 0.7)'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Ganancia total por mesa'
+              },
+              legend: {
+                display: false
+              }
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Ganancia ($)'
                 }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Mesas'
+                }
+              }
             }
+          }
         });
-    })
-    .catch(error => console.error('Error cargando datos:', error));
+      });
+  }, 150); // Esperar a que se monte visualmente
+});
+
+document.getElementById('cerrarModalGrafica').addEventListener('click', () => {
+  document.getElementById('modalGrafica').style.display = 'none';
+});
