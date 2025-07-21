@@ -99,3 +99,78 @@ body {
 .comandas-tabla tbody tr:hover {
   background-color: #1a1a1a;
 }
+
+/* Fila seleccionada */
+.comandas-tabla tbody tr.seleccionada {
+  background-color: #333 !important;
+  outline: 2px solid #f59e0b;
+}
+
+/* Scroll si hay muchas filas */
+.comandas-tabla tbody {
+  display: block;
+  max-height: 600px; /* ajusta si necesitas menos */
+  overflow-y: auto;
+}
+
+.comandas-tabla thead,
+.comandas-tabla tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Modal */
+.modal-confirmacion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-contenido {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px 30px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 20px #000;
+}
+
+.modal-contenido p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-contenido .botones {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-contenido button {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-contenido .btn-si {
+  background: #f59e0b;
+  color: black;
+}
+
+.modal-contenido .btn-no {
+  background: black;
+  border: 2px solid #f59e0b;
+  color: white;
+}
+

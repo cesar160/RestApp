@@ -1,38 +1,57 @@
+// ScriptG.js
+
+let filaSeleccionada = null;
+
+// Espera que el documento cargue
 document.addEventListener('DOMContentLoaded', () => {
-  const btnCancelar = document.querySelector('.btn-cancelar');
-  const modal = document.getElementById('modalCancelar');
-  const btnSi = document.getElementById('btnSi');
-  const btnNo = document.getElementById('btnNo');
-  const comandaNumero = document.getElementById('comandaNumero');
-  const comandaNombre = document.getElementById('comandaNombre');
-  
-  // Función para mostrar el modal con la información de la comanda
-  function mostrarModal(comanda) {
-    const numeroComanda = comanda.querySelector('td').textContent.trim();
-    const nombreCliente = comanda.querySelector('td:nth-child(2)').textContent.split(' ')[1];
-    
-    comandaNumero.textContent = numeroComanda;
-    comandaNombre.textContent = nombreCliente;
-
-    modal.style.display = 'flex';
-  }
-
-  // Agregar evento a las filas de la tabla para mostrar el modal
   const filas = document.querySelectorAll('.comandas-tabla tbody tr');
+  const btnCancelar = document.querySelector('.btn-cancelar');
+
   filas.forEach(fila => {
-    fila.addEventListener('click', () => mostrarModal(fila));
+    fila.addEventListener('click', () => {
+      // Deselecciona otras filas
+      filas.forEach(f => f.classList.remove('seleccionada'));
+      fila.classList.add('seleccionada');
+      filaSeleccionada = fila;
+    });
   });
 
-  // Cerrar el modal
-  btnNo.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
+  btnCancelar.addEventListener('click', () => {
+    if (!filaSeleccionada) return;
 
-  // Acción cuando se confirma cancelar
-  btnSi.addEventListener('click', () => {
-    // Lógica para cancelar la comanda
-    alert('Comanda cancelada');
-    modal.style.display = 'none';
+    const datos = filaSeleccionada.querySelector('td').innerHTML.split('<br>');
+    const numero = datos[0].trim();
+    const nombre = datos[1].trim();
+
+    mostrarConfirmacion(numero, nombre);
   });
 });
+
+function mostrarConfirmacion(numero, nombre) {
+  const modal = document.createElement('div');
+  modal.classList.add('modal-confirmacion');
+  modal.innerHTML = `
+    <div class="modal-contenido">
+      <p>¿Desea cancelar la comanda <strong>${numero}</strong> de <strong>${nombre}</strong>?</p>
+      <div class="botones">
+        <button class="btn-si">Sí</button>
+        <button class="btn-no">No</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  modal.querySelector('.btn-si').addEventListener('click', () => {
+    if (filaSeleccionada) {
+      filaSeleccionada.remove();
+      filaSeleccionada = null;
+    }
+    modal.remove();
+  });
+
+  modal.querySelector('.btn-no').addEventListener('click', () => {
+    modal.remove();
+  });
+}
 
