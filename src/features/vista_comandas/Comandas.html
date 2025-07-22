@@ -21,21 +21,18 @@
 
 
   <div class="filtros">
-    <input class="buscar" type="search" placeholder="Buscar Producto">
+    <input class="buscar" type="search" placeholder="Buscar Producto" id="buscar-input">
 
     <div class="selecciones">
         <div>
-        <label class="label">Categorías</label>
-        <select>
+        <label class="label" for="categoria-select">Categorías</label>
+        <select id="categoria-select">
           <option>Selecciona la categoría</option>
-          <option value="Bebida">Bebida</option>
-          <option value="Comidas">Comidas</option>
-          <option value="Postres">Postres</option>
         </select>
       </div>
       <div>
-        <label class="label">Subcategorías</label>
-        <select>
+        <label class="label" for="subcategoria-select">Subcategorías</label>
+        <select id="subcategoria-select"> 
           <option>Selecciona la subcategoría</option>
         </select>
       </div>
@@ -49,16 +46,12 @@
 
   <div class="contenedor">
   <div class="tabla-contenedor"> 
-    <table>
+    <table id="tabla-productos">
       <thead>
         <tr><th>Item</th><th>Precio</th></tr>
       </thead>
-      <tbody>
-        <tr><td>Item</td><td>$ Precio</td></tr>
-        <tr><td>Item</td><td>$ Precio</td></tr>
-        <tr><td>Item</td><td>$ Precio</td></tr>
-        <tr><td>Item</td><td>$ Precio</td></tr>
-        <tr><td>Item</td><td>$ Precio</td></tr>
+      <tbody id="tabla-productos-body">
+
       </tbody>
     </table>
   </div>
@@ -78,7 +71,7 @@
       <h1></h1>
       <h1></h1>
     </div>
-    <table>
+    <table id="tabla-seleccionados">
       <thead>
         <tr><th>Cantidad</th><th>Item</th><th>Precio</th><th></th></tr>
       </thead>
@@ -91,7 +84,7 @@
 
   <div class="agregar_eliminar">
   <button id="btnRestar" class="btn-red">-</button>
-  <div class="numero" id="contador">1</div>
+  <div class="numero" id="contador"><span id="cantidad">1</span></div>
   <button id="btnSumar" class="btn-green">+</button>
 </div>
 
@@ -99,16 +92,16 @@
   <div class="acciones">
       <p class="Texto">Agregar Comentario</p>
       <div class="comentario">
-      <textarea class="com" name="" id="" placeholder="Agrega un comentario"></textarea>
+      <textarea class="com" name="" id="comentario" placeholder="Agrega un comentario"></textarea>
       </div>
     </div>
 
     <div class="env_com">
     <div>
-      <button id="btnGuardarProducto" class="guardar-boton">Guardar producto</button>
+      <button id="btnGuardarProducto" class="guardar-boton" id="btn-guardar"">Guardar producto</button>
     </div>
     <div class="boton_enviar">
-        <a class="bot" href="/src/features/cuentas/cuentas.html">ENVIAR</a>
+        <a class="bot" href="/src/features/cuentas/cuentas.html" id="btn-enviar">ENVIAR</a>
     </div>
     </div>
 
@@ -134,7 +127,7 @@
       <button onclick="cerrarModal('modal-salir-mesas')" class="modal-btn cancel">No</button>
     </div>
   </div>
-
-  <script src="script/main.js"></script>
+  <script src="./script/comanda.js"></script>
+  <script src="./script/main.js"></script>
 </body>
 </html>

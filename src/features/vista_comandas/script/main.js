@@ -161,4 +161,3 @@ document.addEventListener('DOMContentLoaded', () => {
     tablaScrollDerecha.scrollBy({ top: -100, behavior: 'smooth' });
   });
 });
-
